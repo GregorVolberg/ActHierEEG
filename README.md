@@ -11,3 +11,7 @@ The data is from Tonghe Zhuang's PhD thesis on subordinate, basic and superordin
 - run07*_RSA*.m does RSA for TF cluster data (unsorted) and ERP data in many combinations of Tonghe / Gregor segments and sorted / unsorted conditions.
 - run08_RSAperbin.m is on TF data, but not on the previously defined clusters, but on each time-frequency bin.
 - run09_ClusterCorrectionPerBin.m does post-hoc cluster correction in results from run08_RSAperbin.m
+
+## Open questions
+- Thonge liest die Bedingungscodes im script ActiHierEEG/Progs/PairwiseDecoding.m ein, aus Dateien ActiHierEEG/Data/log/SUBxy_stimuli_preprocess.mat. Diese Dateien liegen auf der NAS nicht vor.
+- Ich habe auch nach dem Umsortieren in DAerp2 weiterhin andere Ergebnisse als Tonghe.
