@@ -1,0 +1,80 @@
+Could not create on-disk crash report: failed opening file: Keine Berechtigung: iostream error
+
+--------------------------------------------------------------------------------
+             std::terminate() detected at 2024-12-17 14:59:45 +0100
+--------------------------------------------------------------------------------
+
+Configuration:
+  Crash Decoding           : Disabled - No sandbox or build area path
+  Crash Mode               : continue (default)
+  Default Encoding         : UTF-8
+  Deployed                 : false
+  Desktop Environment      : GNOME
+  GNU C Library            : 2.31 stable
+  Graphics Driver          : Uninitialized hardware 
+  Graphics card 1          : 0x10de ( 0x10de ) 0x2684 Version 535.183.1.0 (0-0-0)
+  Graphics card 2          : 0x10de ( 0x10de ) 0x2684 Version 535.183.1.0 (0-0-0)
+  Graphics card 3          : 0x1002 ( 0x1002 ) 0x164e Version 0.0.0.0 (0-0-0)
+  Java Version             : Java 1.8.0_202-b08 with Oracle Corporation Java HotSpot(TM) 64-Bit Server VM mixed mode
+  MATLAB Architecture      : glnxa64
+  MATLAB Entitlement ID    : 668548
+  MATLAB Root              : /misc/psi/matlab-R2023a
+  MATLAB Version           : 9.14.0.2337262 (R2023a) Update 5
+  OpenGL                   : hardware
+  Operating System         : Debian GNU/Linux 11 (bullseye)
+  Process ID               : 1962609
+  Processor ID             : x86 Family 25 Model 97 Stepping 2, AuthenticAMD
+  Session Key              : efad60f0-849c-4059-92bc-59493ff9fca0
+  Window System            : The X.Org Foundation (12011000), display :11.0
+
+Fault Count: 1
+
+
+Abnormal termination:
+std::terminate()
+
+Current Thread: 'MCR 0 interpret' id 139828624615168
+
+Register State (captured):
+  RAX = 0000000000000000  RBX = 00007f2d776162c8
+  RCX = 0000000000000000  RDX = 00007f2d7760fec0
+  RSP = 00007f2c637f9690  RBP = 00007f2c637f9a70
+  RSI = 00007f2d775f6705  RDI = 00007f2c637f96a0
+
+   R8 = 0000000000000000   R9 = 00007f2c637f9980
+  R10 = 0000000000000000  R11 = 0000000000000000
+  R12 = 00007f2d77626348  R13 = 00007f2c637f9f40
+  R14 = 00007f2c637f9ad0  R15 = 0000000000000000
+
+  RIP = 00007f2d775a3d9f  EFL = 0000000000000000
+
+   CS = 0000   FS = 0000   GS = 0000
+
+Stack Trace (captured):
+[  0] 0x00007f2d7759d0e3     /misc/psi/matlab-R2023a/bin/glnxa64/libmwfl.so+00319715
+[  1] 0x00007f2d7759d2dc     /misc/psi/matlab-R2023a/bin/glnxa64/libmwfl.so+00320220 _ZN10foundation4core4diag15stacktrace_base7captureEm+00000028
+[  2] 0x00007f2d7759fa78     /misc/psi/matlab-R2023a/bin/glnxa64/libmwfl.so+00330360
+[  3] 0x00007f2d7759fd13     /misc/psi/matlab-R2023a/bin/glnxa64/libmwfl.so+00331027
+[  4] 0x00007f2d6c661582    /misc/psi/matlab-R2023a/bin/glnxa64/libmwmcr.so+01090946
+[  5] 0x00007f2d6c663e1f    /misc/psi/matlab-R2023a/bin/glnxa64/libmwmcr.so+01101343
+[  6] 0x00007f2d6c663fbc    /misc/psi/matlab-R2023a/bin/glnxa64/libmwmcr.so+01101756
+[  7] 0x00007f2d6c665527    /misc/psi/matlab-R2023a/bin/glnxa64/libmwmcr.so+01107239
+[  8] 0x00007f2d765f5966               /lib/x86_64-linux-gnu/libstdc++.so.6+00678246
+[  9] 0x00007f2d765f59d1               /lib/x86_64-linux-gnu/libstdc++.so.6+00678353
+[ 10] 0x00007f2d765f5c65               /lib/x86_64-linux-gnu/libstdc++.so.6+00679013
+[ 11] 0x00007f2d760956cf /misc/psi/matlab-R2023a/bin/glnxa64/libmwboost_filesystem.so.1.78.0+00038607
+[ 12] 0x00007f2cb059cc65 /misc/psi/matlab-R2023a/bin/glnxa64/ddux/ddux_logging/ddux_logging/mwddux_logging.so+01031269
+[ 13] 0x00007f2cb057f840 /misc/psi/matlab-R2023a/bin/glnxa64/ddux/ddux_logging/ddux_logging/mwddux_logging.so+00911424
+[ 14] 0x00007f2cb057fc57 /misc/psi/matlab-R2023a/bin/glnxa64/ddux/ddux_logging/ddux_logging/mwddux_logging.so+00912471
+[ 15] 0x00007f2d77286b33    /misc/psi/matlab-R2023a/bin/glnxa64/libmwmst.so+01076019 _ZN7mwboost4asio6detail9scheduler10do_run_oneERNS1_27conditionally_enabled_mutex11scoped_lockERNS1_21scheduler_thread_infoERKNS_6system10error_codeE+00000899
+[ 16] 0x00007f2d6c9658d1 /misc/psi/matlab-R2023a/bin/glnxa64/matlab_startup_plugins/graphics/opengl_startup_plugin/../../../../../bin/glnxa64/libmwddux_loggingapi.so+00547025 _ZN7mwboost4asio6detail9scheduler3runERNS_6system10error_codeE+00000273
+[ 17] 0x00007f2d6c965b91 /misc/psi/matlab-R2023a/bin/glnxa64/matlab_startup_plugins/graphics/opengl_startup_plugin/../../../../../bin/glnxa64/libmwddux_loggingapi.so+00547729 _ZN7mwboost4asio10io_context3runEv+00000049
+[ 18] 0x00007f2d760d2277 /misc/psi/matlab-R2023a/bin/glnxa64/libmwboost_thread.so.1.78.0+00045687
+[ 19] 0x00007f2d76724ea7              /lib/x86_64-linux-gnu/libpthread.so.0+00032423
+[ 20] 0x00007f2d7645bacf                    /lib/x86_64-linux-gnu/libc.so.6+01030863 clone+00000063
+
+
+
+
+MATLAB is exiting because of fatal error
+/psi/bin/matlab: Zeile 21: 1962609 Getötet                /psi/matlab-R2023a/bin/matlab $*

@@ -1,10 +1,10 @@
 addpath('X:/Volberg/m-lib/fieldtrip'); ft_defaults;
 addpath('./func');
 
-logpath   = '../Data/log/';
-rawpath   = '../Data/raw/';
-cleanpath = '../Results/Preprocessing/';
-lay       = '../Data/63equidistant_GreenleeLab_lay.mat';
+logpath   = '../../Data/log/';
+rawpath   = '../../Data/raw/';
+cleanpath = '../../Results/Preprocessing/';
+lay       = '../../Data/63equidistant_GreenleeLab_lay.mat';
 
 % get files (in ./func)
 ffiles = getfiles(logpath, rawpath, cleanpath);
