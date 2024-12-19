@@ -3,7 +3,7 @@ addpath('./func');
 
 % paths and file names
 cleanpath  = '../data/cleaned/';
-erppath    = '../data/erp/';
+tfrpath    = '../data/tfr/';
 
 tmp = dir([cleanpath, '*.mat']);
 tmpchar = char({tmp.name});
@@ -11,36 +11,25 @@ files.name = sort(strcat({tmp.folder}, filesep, {tmp.name}))';
 files.vps  = cellstr(tmpchar(:,1:5));
 clear tmp tmpchar
 
-% a la Gregor
-cfgpp=[];
-cfgpp.channel = {'all', '-VEOG', '-HEOG'};
-cfgpp.demean = 'yes'; 
-cfgpp.reref = 'yes'; 
-cfgpp.refchannel    = {'all'};
-cfgpp.hpfilter = 'yes';
-cfgpp.hpfreq = 0.1;
-cfgpp.hpfiltord=5;
-
-cfgtl = [];
-cfgtl.keeptrials = 'yes';
-
-cfgrd = [];
-cfgrd.toilim = [-0.2 1];
-
-cfgbsl = [];
-cfgbsl.baseline = [-0.2 0];
-cfgbsl.parameter = 'trial';
+% tfr
+cfgtfr = [];
+cfgtfr.output             = 'pow';
+cfgtfr.method             = 'mtmconvol';
+cfgtfr.taper              = 'hanning';
+cfgtfr.foi                = 4:1:30; % 4 to 40 Hz
+cfgtfr.t_ftimwin          = 5./cfgtfr.foi;
+cfgtfr.toi                = -0.6:0.01:1.2;%
+cfgtfr.pad                = 'nextpow2';
+cfgtfr.keeptrials         = 'yes';
+% perform baseline correction later on pseudo-trials
 
 % subject loop
 for vp = 1:numel(files.name) 
-eeg      = load(files.name{vp}, 'data_ica_cleaned');
-pre_proc = ft_preprocessing(cfgpp, eeg.data_ica_cleaned);
-tl       = ft_timelockanalysis(cfgtl, pre_proc);
-redef    = ft_redefinetrial(cfgrd, tl);
-erp      = ft_timelockbaseline(cfgbsl,redef);
-erp.trialinfo = [erp.trialinfo, EEG_reshape_to_fMRI_vector(erp.trialinfo(:,4))];
-save([erppath, files.vps{vp}, 'erp.mat'], 'erp', '-v7.3');
-clear eeg erp
+eeg = load (files.name{vp});
+tfr =  ft_freqanalysis(cfgtfr, eeg.data_ica_cleaned);
+tfr.trialinfo = [tfr.trialinfo, EEG_reshape_to_fMRI_vector(tfr.trialinfo(:,4))];
+save([tfrpath, files.vps{vp}, 'tfr.mat'], 'tfr');
+clear eeg 
 end
 
 % condition matrix in *.trialinfo
