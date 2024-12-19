@@ -1,6 +1,0 @@
-{Error using save
-Cannot create 'SUB02_DA.mat' because './DAerp' does not exist.
-
-Error in run04_decodingERP (line 69)
-save([dapath, files.vps{vp}, '_DA.mat'], 'DA');
-} 
