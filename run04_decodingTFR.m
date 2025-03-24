@@ -22,7 +22,7 @@ rng(12); % seed for random number
 baseline           = [-0.5 -0.1]; 
 
 %% subject loop
-for vp = 1:numel(files.name)
+for vp = 5:numel(files.name)
 eeg = load (files.name{vp});
 fprintf([files.vps{vp}, ' loaded\n']);
 
